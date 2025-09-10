@@ -23,3 +23,14 @@ body{
     background: lightcyan;
     color: white;
 }
+
+body{
+    background: url('bunga2.jpg');
+    color: white;
+}
+
+body{
+    background: url('img/tree1.png'), url(img/field1.jpg);
+    background-repeat: no-repeat, repeat;
+    color: white;
+}
