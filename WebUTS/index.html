@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nevi's Art Gallery</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="jquery-3.7.1.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      function initSlider(selector) {
+        let i = 0;
+        const slides = $(selector + " img");
+        slides.hide().eq(0).show();
+        setInterval(() => {
+          slides.eq(i).fadeOut(1000);
+          i = (i + 1) % slides.length;
+          slides.eq(i).fadeIn(1000);
+        }, 3000);
+      }
+
+      initSlider("#mountainSlider");
+      initSlider("#eagleSlider");
+      initSlider("#seaSlider");
+    });
+  </script>
+</head>
+
+<body>
+  <header>
+    <h1> Nevi's Art Gallery</h1>
+    <p>Explore beautiful artworks and designs</p>
+  </header>
+
+  <main class="gallery">
+    <a href="galleryDetail.html" class="art-item">
+      <div class="slider-container" id="mountainSlider">
+        <img src="Mountain1.jpg" alt="Mountain 1">
+        <img src="Mountain2.jpg" alt="Mountain 2">
+        <img src="Mountain3.jpg" alt="Mountain 3">
+      </div>
+      <p> Mountain Serenity</p>
+    </a>
+
+    <a href="eagleDetail.html" class="art-item">
+      <div class="slider-container" id="eagleSlider">
+        <img src="Eagle1.jpg" alt="Eagle 1">
+        <img src="Eagle2.jpg" alt="Eagle 2">
+        <img src="Eagle3.jpg" alt="Eagle 3">
+      </div>
+      <p>Majestic Eagle</p>
+    </a>
+
+    <a href="seaDetail.html" class="art-item">
+      <div class="slider-container" id="seaSlider">
+        <img src="Sea1.jpg" alt="Sea 1">
+        <img src="Sea2.jpg" alt="Sea 2">
+        <img src="Sea3.jpg" alt="Sea 3">
+      </div>
+      <p> Sea Horizon</p>
+    </a>
+  </main>
+
+  <footer>
+    <p> Nevi's Art Gallery | Created by Nevita</p>
+  </footer>
+</body>
+</html>

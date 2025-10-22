@@ -1,0 +1,72 @@
+body {
+  background: url("bg.jpg") no-repeat center center fixed;
+  background-size: cover;
+  font-family: "Poppins", sans-serif;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 2rem 1rem;
+  border-radius: 0 0 25px 25px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+header p {
+  font-weight: 300;
+  color: #555;
+  font-size: 1.1rem;
+}
+
+.galleryDetail {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 gambar sejajar */
+  gap: 1.5rem;
+  padding: 3rem 10%;
+  justify-items: center;
+}
+
+.galleryDetail img {
+  width: 300px;           
+  height: 350px;           
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.galleryDetail img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.back-btn {
+  display: inline-block;
+  text-align: center;
+  margin: 2rem auto;
+  padding: 0.9rem 1.8rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50px;
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: #fff;
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
