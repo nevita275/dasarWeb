@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Form Input dengan Validasi & AJAX</title>
+    <title>Form Validasi Password</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
-<h1>Form Input dengan Validasi (AJAX)</h1>
+<h1>Form Validasi Password</h1>
 
-<form id="myForm">
+<form id="myForm" method="post" action="proses_validasi.php">
     <label for="nama">Nama:</label>
     <input type="text" id="nama" name="nama">
     <span id="nama-error" style="color: red;"></span><br>
@@ -17,18 +17,19 @@
     <input type="text" id="email" name="email">
     <span id="email-error" style="color: red;"></span><br>
 
-    <input type="submit" value="Kirim">
-</form>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password">
+    <span id="password-error" style="color: red;"></span><br>
 
-<div id="response" style="margin-top:10px; color:green;"></div>
+    <input type="submit" value="Submit">
+</form>
 
 <script>
 $(document).ready(function() {
     $("#myForm").submit(function(event) {
-        event.preventDefault(); 
-
         var nama = $("#nama").val();
         var email = $("#email").val();
+        var password = $("#password").val();
         var valid = true;
 
         if (nama === "") {
@@ -45,19 +46,15 @@ $(document).ready(function() {
             $("#email-error").text("");
         }
 
-        // Jika validasi lolos, kirim data via AJAX
-        if (valid) {
-            $.ajax({
-                url: "proses_validasi.php",
-                type: "POST",
-                data: { nama: nama, email: email },
-                success: function(response) {
-                    $("#response").html("Data berhasil dikirim!<br>Respon dari server: " + response);
-                },
-                error: function() {
-                    $("#response").html("<span style='color:red'>Terjadi kesalahan saat mengirim data.</span>");
-                }
-            });
+        if (password.length < 8) {
+            $("#password-error").text("Password minimal 8 karakter.");
+            valid = false;
+        } else {
+            $("#password-error").text("");
+        }
+
+        if (!valid) {
+            event.preventDefault();
         }
     });
 });
